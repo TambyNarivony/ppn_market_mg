@@ -1,0 +1,41 @@
+"AdminController" gère les produits et catégories, c'est à dire de créer, de supprimer et de mettre à jour ces derniers,  tandis que les autres contrôleur peuvent seulement visualiser les produits et les catégories
+
+ProductPage.jsx : détails d'un produit
+
+Plusieurs composants (components) peuvent être dans une page.
+
+Chaque compte crée sera automatiquement des simples utilisateurs (il n'y a pas de choix d'être un utilisateur ou un administrateur)
+
+Refa mideclare methode ao amin react de tsy maintsy antsoina ao amin section ilaivana azy
+
+Les routes de lecture (GET) peuvent être publiques, tandis que les routes d'écriture (POST/PUT/DELETE)
+
+faut pas melanger bootstrap et les autres framework css
+
+Le fichier AdminMiddleware doit être dans le bon repertoire precise dans kernel.php (routeMiddlexare)
+
+On ne pourra pas supprimer directement une catégorie et un produit si des sous produits existent dans ces derniers (en tout cas pas dans la base de données)
+
+Si des produits, des sous produits ou des catégories n'apparaissent pas, c'est que l'api pour obtenir ces derniers est protégée
+
+Les noms des propriétés dans le frontend doivent TOUJOURS correspondre à ceux attendus par le backend (categoryId différent de category_id par exemple)
+
+On pourra pas ajouter ajouter des articles dans le panier ou même faire des achats si on n'est pas connecté.
+Cause: dans api.php (route protégé donc erreur)
+
+Chacune des routes API déclarés dans api.php a son propre rôle. 
+
+
+refa sendra erreur de testena ao amin postman loa le api de raha mande de tsy any amin'frontend zay le problème fa any amin backend mintsy
+
+Erreur 422: erreur valeur des propriété (nom déjà utilisé, valeur qui n'est pas dans la base de données)
+
+PROBLEME à REGLER DEMAIN :
+-LES CATEGORIES QUE JE VIENS DE CREER DANS L'INTERFACE ADMINISTRATEUR NE S'AFFICHENT PAS DANS LA PAGE D'ACCUEIL SAUF SI JE SUIS CONNECTE EN TANT QU'ADMINISTRATEUR OU EN TANT QUE SIMPLE UTILISATEUR 
+   GET http://localhost:8000/api/categories 401 (Unauthorized)
+
+**: faut que le route get soit pas protégée par un middleware d'authentification,faut qu'elle soit publique
+
+-QUAND JE CREE DES PRODUITS (QUAND IL Y A DES PRODUITS DANS LA BASE DE DONNEES), LA PAGE D'ACCUEIL DEVIENT TOUT BLANC (ERREUR DANS 'BRANDSELECTOR.JSX') **********
+-IL MANQUE LA PAGE DE CREATION DE COMPTE (REGISTERPAGE.JSX)
+-LES CATERGORIES QUE JE VIENS DE CREER ET QUI ONT ETE BIEN CREE NE SE TROUVENT PAS DANS L'OPTION CATEGORIE DANS LE FORMULAIRE DE CREATION DE PRODUIT

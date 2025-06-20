@@ -1,0 +1,80 @@
+// Override Bootstrap variables
+$primary: #2E8B57; // Vert forêt
+$secondary: #FF7F50; // Corail
+$light: #F5F5DC; // Crème (Blanc cassé)
+
+// Import Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Ajouts spécifiques ou ajustements si nécessaire
+// Par exemple, pour les boutons si vous voulez des effets plus prononcés au survol
+.btn-primary {
+  &:hover {
+    background-color: darken($primary, 10%) !important;
+    border-color: darken($primary, 10%) !important;
+  }
+}
+
+.btn-secondary {
+  &:hover {
+    background-color: darken($secondary, 10%) !important;
+    border-color: darken($secondary, 10%) !important;
+  }
+}
+
+// Styles pour les badges de statut (si non déjà définis)
+.badge-success {
+  background-color: $primary;
+  color: white;
+}
+
+.badge-warning {
+  background-color: #FFC107; // Jaune Bootstrap
+  color: #343A40;
+}
+
+.badge-danger {
+  background-color: #DC3545; // Rouge Bootstrap
+  color: white;
+}
+
+// Amélioration de l'ombre des cartes
+.card {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  }
+}
+
+// Pour les sections titres
+.section-title {
+  font-family: 'Roboto Condensed', sans-serif; // Assurez-vous que cette police est importée
+  font-weight: 700;
+  border-bottom: 2px solid $primary;
+  padding-bottom: 0.75rem; // Légèrement plus grand
+  margin-bottom: 2.5rem; // Plus d'espace après le titre
+  color: #343A40; // Couleur de texte foncée
+}
+
+// Ajustement du header fixe pour qu'il soit plus élégant
+header {
+  background-color: white; // Fond blanc pour le header
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); // Ombre subtile
+}
+
+body {
+  background-color: $light; // Couleur de fond du corps
+  padding-top: 10rem; // S'assurer que le contenu n'est pas caché par le header fixe
+}
+
+// Styles pour les formulaires (champs de saisie)
+.form-control {
+  border-radius: .5rem; // Bordures légèrement plus arrondies
+  padding: .75rem 1rem;
+  &:focus {
+    border-color: $primary;
+    box-shadow: 0 0 0 0.25rem rgba($primary, .25);
+  }
+}

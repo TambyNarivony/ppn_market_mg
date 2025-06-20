@@ -1,0 +1,262 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset1 Segoe UI Symbol;}{\f2\fnil\fcharset1 Cambria Math;}{\f3\fnil Calibri;}{\f4\fnil\fcharset2 Symbol;}}
+{\*\generator Riched20 10.0.22621}{\*\mmathPr\mmathFont2\mwrapIndent1440 }\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs40\lang12 Cahier des Charges (DSF) : PPN Market Madagascar\par
+\fs32 1. Introduction\par
+\fs24 L'application "PPN Market Madagascar" est une plateforme e-commerce d\'e9di\'e9e \'e0 la vente de produits de premi\'e8re n\'e9cessit\'e9 (PPN) \'e0 Madagascar. Elle cible les consommateurs malgaches cherchant \'e0 acheter en ligne des produits de base (huiles, nouilles, riz, etc.) et leurs variantes de marques. D\'e9velopp\'e9e avec React (front-end) et Laravel (back-end), elle offre une exp\'e9rience d'achat fluide et une gestion approfondie des sous-produits.\par
+\par
+\fs32 2. Objectifs du Projet\par
+\fs28 Probl\'e8mes r\'e9solus :\par
+\fs24\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Centraliser l'offre de PPN (souvent dispers\'e9e dans les march\'e9s locaux).\par
+{\pntext\f4\'B7\tab}Simplifier la d\'e9couverte des marques (ex: 10 types d'huile de diff\'e9rentes marques).\par
+
+\pard\sa200\sl276\slmult1\par
+\fs28 B\'e9n\'e9fices utilisateurs :\par
+\fs24\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Comparaison rapide des prix/marques.\par
+{\pntext\f4\'B7\tab}Livraison fiable (int\'e9gr\'e9e aux sp\'e9cificit\'e9s malgaches).\par
+
+\pard\sa200\sl276\slmult1\par
+\fs28 Objectifs d'apprentissage :\par
+\fs24\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Mettre en pratique React (Context API, React Router) et Laravel (Eloquent ORM, API REST).\par
+{\pntext\f4\'B7\tab}G\'e9rer des relations complexes de donn\'e9es (produits \f1\u8596?\f0  sous-produits).\par
+{\pntext\f4\'B7\tab}Impl\'e9menter un syst\'e8me de paiement adapt\'e9 \'e0 Madagascar (MVola, Orange Money).\par
+
+\pard\sa200\sl276\slmult1\par
+\fs32 3. Port\'e9e du Projet\par
+\fs28 Fonctionnalit\'e9s essentielles (version 1.0) :\par
+\fs24\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Catalogue de produits avec filtrage par cat\'e9gorie (huiles, nouilles...) et marque.\par
+{\pntext\f4\'B7\tab}Fiche produit d\'e9taill\'e9e (prix, marques disponibles, stock).\par
+{\pntext\f4\'B7\tab}Panier, commande et simulateur de paiement (MVola/Orange Money).\par
+{\pntext\f4\'B7\tab}Tableau de bord admin : CRUD produits/sous-produits, gestion des stocks.\par
+{\pntext\f4\'B7\tab}Profil utilisateur (historique d'achats, adresses).\par
+
+\pard\sa200\sl276\slmult1\par
+\fs28 Exclues (version future) :\par
+\fs24\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Syst\'e8me de livraison en temps r\'e9el (GPS).\par
+{\pntext\f4\'B7\tab}Int\'e9gration compl\'e8te des APIs bancaires.\par
+{\pntext\f4\'B7\tab}Syst\'e8me de recommandation IA.\par
+
+\pard\sa200\sl276\slmult1\par
+\fs28 R\'f4les utilisateurs :\par
+\fs24\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Client (non inscrit/inscrit).\par
+{\pntext\f4\'B7\tab}Administrateur.\par
+
+\pard\sa200\sl276\slmult1\par
+\fs32 4. Exigences Fonctionnelles\par
+\fs28 a. Gestion des produits :\par
+\fs24\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 CRUD des cat\'e9gories (ex: "Huiles", "Nouilles").\par
+{\pntext\f4\'B7\tab}CRUD des produits (ex: "Huile de tournesol") et leurs sous-produits (marques: "Brand A", "Brand B").\par
+
+\pard\sa200\sl276\slmult1\par
+\fs28 Attributs :\par
+\fs24\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Produit : Nom, description, cat\'e9gorie.\par
+{\pntext\f4\'B7\tab}Sous-produit : Marque, prix, stock, image.\par
+
+\pard\sa200\sl276\slmult1\par
+\fs28 b. Exp\'e9rience client :\par
+\fs24\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Recherche par nom/cat\'e9gorie/marque.\par
+{\pntext\f4\'B7\tab}Ajout au panier (choix de la marque et quantit\'e9).\par
+{\pntext\f4\'B7\tab}Checkout avec choix de paiement (MVola/Orange Money simul\'e9).\par
+
+\pard\sa200\sl276\slmult1\par
+\fs28 c. Administration :\par
+\fs24\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Dashboard : Statistiques de ventes, gestion des stocks.\par
+{\pntext\f4\'B7\tab}Validation des commandes.\par
+
+\pard\sa200\sl276\slmult1\par
+\fs32 5. Mod\'e8le de Donn\'e9es\par
+\fs28 Utilisateur\par
+\fs24 - id, nom, email, mot_de_passe, adresse\par
+\par
+\fs28 Cat\'e9gorie\par
+\fs24 - id, nom, description\par
+\par
+\fs28 Produit\par
+\fs24 - id, nom, description, cat\'e9gorie_id\par
+\par
+\fs28 SousProduit (Marques)\par
+\fs24 - id, produit_id, marque, prix, stock, image_url\par
+\par
+\fs28 Commande\par
+\fs24 - id, utilisateur_id, total, statut\par
+\par
+\fs28 CommandeSousProduit\par
+\fs24 - id, commande_id, sous_produit_id, quantit\'e9\par
+\fs28 Relations :\par
+\fs24\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Une cat\'e9gorie \f2\u8594?\f0  plusieurs produits.\par
+{\pntext\f4\'B7\tab}Un produit \f2\u8594?\f0  plusieurs sous-produits (marques).\par
+{\pntext\f4\'B7\tab}Une commande \f2\u8594?\f0  plusieurs CommandeSousProduit.\par
+
+\pard\sa200\sl276\slmult1\par
+\fs32 6. Exigences Non Fonctionnelles\par
+\fs28 Performance :\par
+\fs24\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Temps de chargement < 2s (optimisation images, lazy loading).\par
+{\pntext\f4\'B7\tab}Cache des donn\'e9es statiques (Laravel Cache).\par
+
+\pard\sa200\sl276\slmult1\par
+\fs28 S\'e9curit\'e9 :\par
+\fs24\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Authentification JWT.\par
+{\pntext\f4\'B7\tab}Validation des paiements simul\'e9s (sans donn\'e9es sensibles r\'e9elles).\par
+{\pntext\f4\'B7\tab}Protection CSRF/XSS.\par
+
+\pard\sa200\sl276\slmult1\par
+\fs28 Compatibilit\'e9 :\par
+\fs24\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Responsive (mobile-first, 80% des utilisateurs malgaches acc\'e8dent via mobile).\par
+
+\pard\sa200\sl276\slmult1\par
+\fs28\'c9co-responsabilit\'e9 :\par
+\fs24\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Compression des images (r\'e9duction jusqu'\'e0 70%).\par
+{\pntext\f4\'B7\tab}Requ\'eates API optimis\'e9es (pagination, indexation DB).\par
+
+\pard\sa200\sl276\slmult1\par
+\fs32 7. Architecture Technique\par
+\fs28 Front-end (React) :\par
+\fs24\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Biblioth\'e8ques : React Router, Redux Toolkit (gestion \'e9tat), Bootstrap (UI).\par
+{\pntext\f4\'B7\tab}Composants cl\'e9s : ProductCard, BrandSelector, PaymentSimulator.\par
+
+\pard\sa200\sl276\slmult1\par
+\fs28 Back-end (Laravel) :\par
+\fs24\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Laravel 10, MySQL.\par
+
+\pard\sa200\sl276\slmult1\par
+\fs28 API REST :\par
+\fs24\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Endpoints : /api/products, /api/brands, /api/orders.\par
+{\pntext\f4\'B7\tab}Authentification : Laravel Sanctum (tokens).\par
+
+\pard\sa200\sl276\slmult1\par
+\fs28 Communication :\par
+\fs24\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Requ\'eates HTTP (Axios) \f1\u8596?\f0  JSON.\par
+
+\pard\sa200\sl276\slmult1\par
+\fs32 8. UI/UX\par
+\fs28 Design :\par
+\fs24\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Palette : Vert (#2E8B57) et orange (#FF7F50) (couleurs \'e9vocatrices de Madagascar).\par
+{\pntext\f4\'B7\tab}Typographie : Open Sans (lisible sur mobile).\par
+
+\pard\sa200\sl276\slmult1\par
+\fs28 Navigation :\par
+\fs24\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Barre de recherche \f2\u8594?\f0  Filtres (cat\'e9gorie/marque) \f2\u8594?\f0  Fiche produit \f2\u8594?\f0  Panier \f2\u8594?\f0  Checkout.\par
+
+\pard\sa200\sl276\slmult1\par
+\fs28 Maquettes (extrait) :\par
+\fs24\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Page d'accueil : Grille de produits avec filtre par marque.\par
+{\pntext\f4\'B7\tab}Fiche produit : S\'e9lecteur de marque, galerie d'images, prix dynamique.\par
+
+\pard\sa200\sl276\slmult1\par
+\fs32 9. Flux de Navigation\par
+\fs28 Sc\'e9nario "Acheter une huile" :\par
+\fs24\par
+
+\pard 
+{\pntext\f0 a.\tab}{\*\pn\pnlvlbody\pnf0\pnindent0\pnstart1\pnlcltr{\pntxta.}}
+\fi-360\li720\sa200\sl276\slmult1 Utilisateur \f2\u8594?\f0  Page d'accueil \f2\u8594?\f0  Cat\'e9gorie "Huiles".\par
+{\pntext\f0 b.\tab}S\'e9lectionne "Huile de tournesol" \f2\u8594?\f0  Choisit la marque "Brand A".\par
+{\pntext\f0 c.\tab}Ajoute au panier \f2\u8594?\f0  Checkout \f2\u8594?\f0  S\'e9lectionne "MVola" \f2\u8594?\f0  Confirmation.\par
+{\pntext\f0 d.\tab}Admin : Re\'e7oit la commande \f2\u8594?\f0  Met \'e0 jour le stock.\par
+
+\pard\sa200\sl276\slmult1\par
+\fs32 10. \'c9ch\'e9ancier\par
+\fs28 Semaine 1 :\par
+\fs24\par
+
+\pard 
+{\pntext\f0 a.\tab}{\*\pn\pnlvlbody\pnf0\pnindent0\pnstart1\pnlcltr{\pntxta.}}
+\fi-360\li720\sa200\sl276\slmult1 J1-2 : Finalisation du CDC.\par
+{\pntext\f0 b.\tab}J3-4 : Mod\'e8le de donn\'e9es (migrations Laravel), routes API.\par
+{\pntext\f0 c.\tab}J5-7 : Maquettes UI (Figma), architecture React.\par
+
+\pard\sa200\sl276\slmult1\par
+\fs28 Semaine 2 :\par
+\fs24\par
+
+\pard 
+{\pntext\f0 a.\tab}{\*\pn\pnlvlbody\pnf0\pnindent0\pnstart1\pnlcltr{\pntxta.}}
+\fi-360\li720\sa200\sl276\slmult1 J8-9 : Front-end (pages produit/panier).\par
+{\pntext\f0 b.\tab}J10-11 : Back-end (API produits/commandes).\par
+{\pntext\f0 c.\tab}J12 : Int\'e9gration API (React \f1\u8596?\f0  Laravel).\par
+{\pntext\f0 d.\tab}J13 : Tests (cypress.io pour les parcours).\par
+{\pntext\f0 e.\tab}J14 : Optimisation SEO/performance.\par
+{\pntext\f0 f.\tab}J15 : Pr\'e9paration d\'e9mo.\par
+
+\pard\sa200\sl276\slmult1\par
+\fs28 11. Plan de Validation\par
+Tests automatis\'e9s :\par
+\fs24\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Front : Tests React (Jest) sur les s\'e9lecteurs de marque.\par
+{\pntext\f4\'B7\tab}Back : Tests PHPUnit (CRUD produits, calcul total commande).\par
+
+\pard\sa200\sl276\slmult1\par
+\fs28 Tests manuels :\par
+\fs24\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Parcours client complet (acheter un produit multi-marques).\par
+{\pntext\f4\'B7\tab}Validation responsive (DevTools device mode).\par
+
+\pard\sa200\sl276\slmult1\par
+\fs32 12. D\'e9ploiement\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 Production : D\'e9ploiement local pour d\'e9mo (Docker).\par
+
+\pard\sa200\sl276\slmult1\par
+\fs28 Pr\'e9requis :\par
+\fs24\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Front : Node.js v18.\par
+{\pntext\f4\'B7\tab}Back : PHP 8.2, MySQL.\par
+
+\pard\sa200\sl276\slmult1\par
+\fs32 13. R\'e9f\'e9rences\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 UI : Bootstrap 5, react-icons.\par
+{\pntext\f4\'B7\tab}Cartes : react-responsive-carousel.\par
+{\pntext\f4\'B7\tab}Paiement : Simulation avec laravel-cashier (mode test).\par
+{\pntext\f4\'B7\tab}Inspiration : Jumia (adaptation au contexte malgache).\par
+
+\pard\sa200\sl276\slmult1\par
+Ce CDC couvre tous les points demand\'e9s et propose un projet r\'e9aliste pour 2 semaines, centr\'e9 sur la gestion des sous-produits (marques) \f3\endash  l'\f0\'e9l\'e9ment cl\'e9 diff\'e9renciant votre application.\lang12\par
+}
+ 
