@@ -58,6 +58,8 @@ RUN php artisan config:cache \
 # Remove default nginx config
 RUN rm /etc/nginx/conf.d/default.conf
 
+RUN ls -la /var/www/html/
+
 # Copy custom nginx configuration
 COPY docker/nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
