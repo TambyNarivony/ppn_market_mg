@@ -56,7 +56,9 @@ RUN php artisan config:cache \
 
 # Configure Nginx for Laravel
 # Remove default nginx config
-RUN rm /etc/nginx/conf.d/default.conf
+# RUN rm /etc/nginx/conf.d/default.conf
+COPY docker/nginx/nginx.conf /etc/nginx/conf.d/default.conf
+
 
 
 # Copy custom nginx configuration
