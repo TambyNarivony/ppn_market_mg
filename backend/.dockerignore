@@ -1,0 +1,11 @@
+.git
+.gitignore
+.env
+node_modules
+vendor
+npm-debug.log
+Dockerfile
+docker
+.vscode
+storage/*.log
+bootstrap/cache/*.php
