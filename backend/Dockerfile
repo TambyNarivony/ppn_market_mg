@@ -39,6 +39,8 @@ COPY docker/nginx/conf.d/app.conf /etc/nginx/conf.d/default.conf
 
 RUN nginx -t
 
+# Publier les migrations Sanctum
+RUN php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider" --tag="sanctum-migrations" || echo "Sanctum migrations already published"
 
 
 RUN chown -R www-data:www-data /var/www/html \
