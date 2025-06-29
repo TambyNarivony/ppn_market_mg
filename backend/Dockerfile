@@ -1,5 +1,7 @@
 FROM php:8.2-fpm-alpine
 
+RUN php artisan tinker --execute="DB::connection()->getPdo(); echo 'DB connection OK';" || echo "DB connection failed"
+
 RUN apk add --no-cache \
     nginx \
     curl \
@@ -26,6 +28,11 @@ RUN php artisan config:clear && \
     php artisan route:clear && \
     php artisan view:clear
 
+RUN php artisan config:cache
+
+RUN mkdir -p storage/certs && \
+    curl -o storage/certs/isrgrootx1.pem https://letsencrypt.org/certs/isrgrootx1.pem
+
 # Test migrations but don't fail build
 RUN php artisan migrate --force || echo "Migration failed - check DB connection"
 
@@ -34,7 +41,14 @@ COPY docker/nginx/conf.d/app.conf /etc/nginx/conf.d/default.conf
 
 RUN nginx -t
 
+# Ajouter après l'installation des dépendances
+RUN mkdir -p storage/certs && \
+    curl -o storage/certs/isrgrootx1.pem https://letsencrypt.org/certs/isrgrootx1.pem && \
+    chmod 644 storage/certs/isrgrootx1.pem
 
+RUN mkdir -p storage/logs storage/framework/cache storage/framework/sessions storage/framework/views && \
+    chown -R www-data:www-data /var/www/html && \
+    chmod -R 775 storage bootstrap/cache
 
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 775 storage bootstrap/cache
