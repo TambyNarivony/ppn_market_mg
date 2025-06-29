@@ -12,7 +12,7 @@ RUN apk add --no-cache \
     unzip \
     nodejs \
     npm \
-    openssl \  # Nécessaire pour SSL
+    openssl 
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd pdo_mysql opcache bcmath exif pcntl
 
