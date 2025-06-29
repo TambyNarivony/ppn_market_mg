@@ -1,22 +1,7 @@
-# ----- Étape 1: Construire l'image PHP avec extensions nécessaires -----
-# Utilisez une image PHP officielle avec Apache ou FPM (PHP-FPM est mieux pour Nginx, mais Apache est plus simple ici)
-# Pour une image plus petite et optimisée pour la production, on peut utiliser php:8.x-apache-alpine
-# Pour plus de flexibilité (Nginx + FPM), on utiliserait php:8.x-fpm-alpine
-
-# Dans cet exemple, nous allons utiliser une image PHP-FPM avec Nginx, car c'est une configuration courante et performante pour Laravel.
-
-# Base image for PHP (change 8.2 to your PHP version if different)
+# Base image PHP-FPM
 FROM php:8.2-fpm-alpine
 
-# Install system dependencies and PHP extensions
-# - curl: for downloading files
-# - libpng-dev, libjpeg-turbo-dev: for GD extension (image manipulation)
-# - freetype-dev: for GD extension
-# - zip, unzip: for composer and archive handling
-# - gd: PHP GD extension
-# - pdo_mysql: PHP extension for MySQL connection
-# - opcache: PHP performance extension
-# - bcmath, exif, pcntl: Common Laravel requirements
+# Install dependencies
 RUN apk add --no-cache \
     nginx \
     curl \
@@ -34,39 +19,29 @@ RUN apk add --no-cache \
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
-# Set working directory inside the container
+# Setup working directory
 WORKDIR /var/www/html
 
-# Copy the Laravel application files into the container
-# Use .dockerignore to exclude files not needed in the image (like node_modules, .git)
+# Copy application
 COPY . .
 
-# Install Composer dependencies
-RUN composer install --no-dev --optimize-autoloader --no-interaction
+# Install dependencies and optimize
+RUN composer install --no-dev --optimize-autoloader --no-interaction && \
+    php artisan key:generate --show || echo "APP_KEY exists" && \
+    php artisan config:cache && \
+    php artisan route:cache && \
+    php artisan view:cache
 
-# Generate application key (if not already in .env from Render)
-# This command is usually done via env variables on Render, but good to have for initial setup.
-# If you rely solely on Render env vars, you might not need this here.
-RUN php artisan key:generate --show || echo "APP_KEY already exists or generate on Render."
+# Configure Nginx
+COPY docker/nginx/nginx.conf /etc/nginx/nginx.conf
+COPY docker/nginx/app.conf /etc/nginx/conf.d/default.conf
 
-# Run Laravel optimizations (if in production)
-RUN php artisan config:cache \
-    && php artisan route:cache \
-    && php artisan view:cache
+# Test Nginx config
+RUN nginx -t
 
-# Configure Nginx for Laravel
-# Remove default nginx config
-# RUN rm /etc/nginx/conf.d/default.conf
-COPY docker/nginx/nginx.conf /etc/nginx/conf.d/default.conf
+# Permissions
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
-
-
-# Copy custom nginx configuration
-COPY docker/nginx/nginx.conf /etc/nginx/conf.d/default.conf
-
-# Expose port 80 for Nginx
+# Expose and run
 EXPOSE 80
-
-# Command to run Nginx and PHP-FPM
-# This command starts both services in the foreground
 CMD ["sh", "-c", "nginx -g 'daemon off;' & php-fpm"]
