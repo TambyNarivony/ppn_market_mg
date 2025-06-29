@@ -20,6 +20,26 @@ Route::get('/products/search', [ProductController::class, 'search']);
 
 Route::get('/products/{id}', [ProductController::class, 'show']);
 
+// routes/api.php
+Route::get('/test-db', function() {
+    try {
+        DB::connection()->getPdo();
+
+        // Test SSL
+        $results = DB::select('SHOW STATUS LIKE "Ssl_cipher"');
+        return response()->json([
+            'status' => 'DB OK',
+            'ssl' => $results
+        ]);
+
+    } catch (\Exception $e) {
+        return response()->json([
+            'error' => $e->getMessage(),
+            'trace' => $e->getTraceAsString()
+        ], 500);
+    }
+});
+
 
 Route::post('/get-token', function (Request $request) {
     $user = \App\Models\User::where('email', $request->email)->first();
