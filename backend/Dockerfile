@@ -28,8 +28,6 @@ RUN php artisan config:clear && \
     php artisan route:clear && \
     php artisan view:clear
 
-RUN php artisan config:cache
-
 RUN mkdir -p storage/certs && \
     curl -o storage/certs/isrgrootx1.pem https://letsencrypt.org/certs/isrgrootx1.pem
 
@@ -41,10 +39,7 @@ COPY docker/nginx/conf.d/app.conf /etc/nginx/conf.d/default.conf
 
 RUN nginx -t
 
-# Ajouter après l'installation des dépendances
-RUN mkdir -p storage/certs && \
-    curl -o storage/certs/isrgrootx1.pem https://letsencrypt.org/certs/isrgrootx1.pem && \
-    chmod 644 storage/certs/isrgrootx1.pem
+
 
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 775 storage bootstrap/cache
