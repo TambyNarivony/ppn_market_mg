@@ -32,6 +32,13 @@ RUN composer install --no-dev --optimize-autoloader --no-interaction && \
     php artisan route:cache && \
     php artisan view:cache
 
+RUN php artisan config:clear && \
+    php artisan route:clear && \
+    php artisan view:clear
+
+RUN echo "pm.status_path = /status" >> /usr/local/etc/php-fpm.d/zz-docker.conf && \
+    echo "ping.path = /ping" >> /usr/local/etc/php-fpm.d/zz-docker.conf
+
 # Configure Nginx
 COPY docker/nginx/nginx.conf /etc/nginx/nginx.conf
 COPY docker/nginx/conf.d/app.conf /etc/nginx/conf.d/default.conf
@@ -40,7 +47,9 @@ COPY docker/nginx/conf.d/app.conf /etc/nginx/conf.d/default.conf
 RUN nginx -t
 
 # Permissions
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 775 /var/www/html/storage \
+    && chmod -R 775 /var/www/html/bootstrap/cache
 
 # Expose and run
 EXPOSE 80
