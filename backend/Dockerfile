@@ -39,6 +39,8 @@ RUN php artisan config:clear && \
 RUN echo "pm.status_path = /status" >> /usr/local/etc/php-fpm.d/zz-docker.conf && \
     echo "ping.path = /ping" >> /usr/local/etc/php-fpm.d/zz-docker.conf
 
+RUN php artisan migrate --force
+
 # Configure Nginx
 COPY docker/nginx/nginx.conf /etc/nginx/nginx.conf
 COPY docker/nginx/conf.d/app.conf /etc/nginx/conf.d/default.conf
