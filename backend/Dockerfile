@@ -34,7 +34,7 @@ RUN composer install --no-dev --optimize-autoloader --no-interaction && \
 
 # Configure Nginx
 COPY docker/nginx/nginx.conf /etc/nginx/nginx.conf
-COPY docker/nginx/app.conf /etc/nginx/conf.d/default.conf
+COPY docker/nginx/conf.d/app.conf /etc/nginx/conf.d/default.conf
 
 # Test Nginx config
 RUN nginx -t
