@@ -89,7 +89,7 @@ const HomePage = () => {
         <div className="container">
           <div className="align-items-center">
             <div>
-              <h2>PPM Market Madagascar</h2>
+              <h2>PPN Market Madagascar</h2>
               <p className="opacity-70">Votre marketplace de produits de première nécessité. <br /> Comparez les marques, trouvez les meilleurs prix, commandez en ligne.</p>
             </div>
             <div>

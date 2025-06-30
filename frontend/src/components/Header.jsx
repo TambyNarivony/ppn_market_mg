@@ -34,7 +34,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="navbar-brand text-white text-decoration-none d-flex align-items-center">
             <i className="bi bi-shop me-2 fs-4"></i>
-            <span className="fw-bold fs-5">PPM Market MG</span>
+            <span className="fw-bold fs-5">PPN Market MG</span>
           </Link>
 
           {/* Desktop Search Bar - Center */}
