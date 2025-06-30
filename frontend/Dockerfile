@@ -2,21 +2,26 @@
 FROM node:18-alpine as builder
 
 WORKDIR /app
-COPY package*.json ./
-RUN npm ci
+COPY package.json package-lock.json ./
+RUN npm ci --silent
 COPY . .
 RUN npm run build
 
-# Étape 2 : Servir l'application avec Nginx
+RUN ls -l dist/
+
+
+# Vérification du dossier de build
+RUN ls -l . && \
+    echo "Contenu du dossier build:" && \
+    ls -l build/  # Ou dist/ si tu utilises Vite
+
+# Étape 2 : Servir l'application
 FROM nginx:alpine
 
-# Copie la config Nginx
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copie les fichiers buildés
-COPY --from=builder /app/build /usr/share/nginx/html
+# Utilise le même nom que dans la vérification ci-dessus
+COPY --from=builder /app/dist /usr/share/nginx/html  # Changé à dist
 
-# Port exposé
 EXPOSE 80
-
 CMD ["nginx", "-g", "daemon off;"]
