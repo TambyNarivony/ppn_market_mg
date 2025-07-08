@@ -14,7 +14,7 @@ return (
             <span className="btn-secondary rounded fw-bold" style={{height:"70px", padding:'20px'}}>MVola</span>
             <span className="btn-secondary  rounded p-2 fw-bold" style={{height:"70px", padding:'20px'}}>Orange Money</span>
             <span className="btn-secondary  rounded p-2 fw-bold" style={{height:"70px", padding:'20px'}}>Airtel Money</span> 
-            <img src="../../public/image/visa.jpg" className="img-fluid" style={{ maxWidth: '100px', height:"70px" }} />
+            <img src="/image/visa.jpg" className="img-fluid" style={{ maxWidth: '100px', height:"70px" }} />
           </div>
         </div>
         
